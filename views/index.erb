@@ -1,0 +1,21 @@
+<h1>Countries</h1>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>|</th>
+     <th>Continent</th>
+     <th>|</th>
+     <th>Visited?</th>
+  </tr>
+  <% for country in @countries %>
+  <tr>
+    <td><a href="/country/<%= country.id %>"><%= country.name %></a></td>
+    <td>|</td>
+     <td><%= country.continent %></td>
+     <td>|</td>
+     <td><%= country.visited %></td>
+  </tr>
+  <% end %>
+</table>
