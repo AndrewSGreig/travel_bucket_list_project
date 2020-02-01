@@ -11,7 +11,7 @@ class Country
   end
 
   def save
-    # binding.pry
+    binding.pry
     sql = "INSERT INTO countries
     (
       name,

@@ -8,6 +8,8 @@
     <th>Continent</th>
     <th>|</th>
     <th>Visited?</th>
+    <th>|</th>
+    <th>Delete</th>
   </tr>
   <% for country in @countries %>
   <tr>
@@ -16,6 +18,8 @@
     <td><%= country.continent %></td>
     <td>|</td>
     <td><%= country.visited %></td>
+    <td>|</td>
+    <!-- add delete funtionaility here -->
   </tr>
   <% end %>
 </table>

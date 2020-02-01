@@ -31,9 +31,10 @@ class Destination
   end
 
   def self.all()
-    sql = "SELECT * FROM destinations"
+    binding.pry
+    sql = "SELECT * FROM destinations;"
     results = SqlRunner.run( sql )
-    return results.map { |hash| Country.new( hash ) }
+    return results.map { |hash| Destination.new( hash ) }
   end
 
   def self.delete_all()

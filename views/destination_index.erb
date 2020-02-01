@@ -1,27 +1,9 @@
 <h1>Destination</h1>
+<%= @destinations.count %>
+<%= destination_count = 1 %>
+<%= while destination_count >= @destinations.count do %>
+<%= p destination %>
+<% end%>
 
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>|</th>
-    <th>Country</th>
-    <th>|</th>
-    <th>Type</th>
-    <th>|</th>
-    <th>Visited?</th>
-  </tr>
-  <% for destination in @destinations %>
-  <tr>
-    <td><%= destination.name %></td>
-    <td>|</td>
-    <td>
-      <!-- <!- <!--%= destination.country_id %> %> -->
-    </td>
-    <td>|</td>
-    <td><%= type %></td>
-    <td>|</td>
-    <td><%= destination.visited %></td>
-  </tr>
-  <% end %>
-</table>
+<%# FOR LOOP COPIED INTO NOTES %>
