@@ -10,8 +10,6 @@ get '/country' do
   erb(:index)
 end
 
-################################
-#####Need to work on this
 get '/country/new' do
   @countries = Country.all()
   erb(:"new_country")
@@ -21,7 +19,30 @@ post '/country' do
   Country.new(params).save
   redirect to("/country")
 end
-###################################
+
+get '/country/:id/edit' do
+  @country = Country.find(params['id'])
+  erb(:edit_country)
+end
+
+post '/country/:id' do
+  country = Country.new(params)
+  country.update
+  redirect to "/country"
+end
+#
+# get '/country/:id/delete' do
+#   country = Country.find(params['id'])
+# end
+
+get '/country/:id/delete' do
+  binding.pry
+  country = Country.find(params['id'])
+  country.delete
+  redirect to '/country'
+end
+
+
 
 ##################################
 # get '/country/destination' do

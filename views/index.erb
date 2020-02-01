@@ -13,13 +13,13 @@
   </tr>
   <% for country in @countries %>
   <tr>
-    <td><a href="/country/<%= country.id %>"><%= country.name %></a></td>
+    <td><a href="/country/<%= country.id %>/edit"><%= country.name %></a></td>
     <td>|</td>
     <td><%= country.continent %></td>
     <td>|</td>
     <td><%= country.visited %></td>
     <td>|</td>
-    <!-- add delete funtionaility here -->
+    <td><a href="/country/<%= country.id %>/delete">Delete <%= country.name %></a></td>
   </tr>
   <% end %>
 </table>

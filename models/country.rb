@@ -11,7 +11,6 @@ class Country
   end
 
   def save
-    binding.pry
     sql = "INSERT INTO countries
     (
       name,
@@ -29,11 +28,37 @@ class Country
     @id = results.first()['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE countries
+    SET
+    (
+      name,
+      continent,
+      visited
+    ) =
+    (
+      $1, $2, $3
+    )
+    WHERE id = $4"
+    values = [@name, @continent, @visited, @id]
+    SqlRunner.run(sql, values)
+  end
 
-  def self.delete(id)
-    sql = "DELETE FROM countries
+
+  def self.find(id)
+    sql = "SELECT * FROM countries
     WHERE id = $1"
     values = [id]
+    result = SqlRunner.run(sql, values).first
+    country = Country.new(result)
+    return country
+  end
+
+  def delete()
+    binding.pry
+    sql = "DELETE FROM countries
+    WHERE id = $1"
+    values = [@id]
     SqlRunner.run( sql, values )
   end
 
