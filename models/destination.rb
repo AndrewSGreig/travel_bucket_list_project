@@ -1,6 +1,6 @@
 
 class Destination
-  attr_accessor :name, :visited, :country_id
+  attr_accessor :name, :visited, :type, :country_id
   attr_reader :id
 
   def initialize(options)
@@ -12,7 +12,7 @@ class Destination
 
   def save
     sql = "INSERT INTO destinations(
-    name, country_id, visited,type
+    name, country_id, type, visited
     )
     VALUES(
       $1, $2, $3, $4

@@ -55,7 +55,6 @@ class Country
   end
 
   def delete()
-    binding.pry
     sql = "DELETE FROM countries
     WHERE id = $1"
     values = [@id]
