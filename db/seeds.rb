@@ -40,7 +40,7 @@ country5 = Country.new({
   "visited"=> "not visited"
   })
 country5.save;
- binding.pry;
+
 
 destination1 = Destination.new({
   "name" => "Sydney",

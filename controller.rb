@@ -41,7 +41,6 @@ end
 
 ##################################
 get '/country/destination' do
-  binding.pry
   @destinations = Destination.all()
   erb(:destination_index)
 end
@@ -54,6 +53,8 @@ get '/country/destination/new' do
 end
 
 post '/country/destination/new' do
+  @countries = Country.all
+  @destinations = Destination.all
   destination = Destination.new(params)
   destination.save
   redirect to("/country/destination")
