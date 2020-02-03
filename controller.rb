@@ -5,6 +5,10 @@ require_relative( './models/country.rb' )
 require_relative( './models/destination.rb' )
 also_reload( './models/*' )
 
+get '/country/' do
+  redirect to "/country"
+end
+
 get '/country' do
   @countries = Country.all()
   erb(:index)
