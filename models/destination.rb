@@ -59,10 +59,10 @@ def self.find(id)
   return destination
 end
 
-def self.delete(id)
+def delete()
   sql = "DELETE FROM destinations
   WHERE id = $1"
-  values = [id]
+  values = [@id]
   SqlRunner.run( sql, values )
 end
 

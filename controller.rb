@@ -76,4 +76,10 @@ post '/country/destination/:id' do
 end
 
 
+get '/country/destination/:id/delete' do
+  destination = Destination.find(params['id'])
+  destination.delete
+  redirect to '/country/destination'
+end
+
 ##################################
