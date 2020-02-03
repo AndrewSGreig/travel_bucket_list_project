@@ -12,7 +12,6 @@ class Destination
   end
 
   def save
-    binding.pry
     sql = "INSERT INTO destinations(
     name, country_id, type, visited
   )
@@ -33,48 +32,55 @@ def update
     country_id,
     type,
     visited
-  ) =
-  (
-    $1, $2, $3, $4
-  )
-  WHERE id = $5"
-  values = [@name, @country_id, @type, @visited, @id]
-  SqlRunner.run(sql, values)
-end
+    ) =
+    (
+      $1, $2, $3, $4
+    )
+    WHERE id = $5"
+    values = [@name, @country_id, @type, @visited, @id]
+    SqlRunner.run(sql, values)
+  end
 
-def country
-  sql = "SELECT * FROM countries WHERE id = $1"
-  values = [@country_id]
-  results = SqlRunner.run(sql, values)
-  # results_map = results.map { |country| Country.new(country) }
-  return Country.new(results.first)
-end
+  def self.dests_visited()
+    binding.pry
+    sql = "SELECT * FROM destinations WHERE visited;"
+    results = SqlRunner.run(sql)
+    visited_hash = results.map { |hash| Destination.new( hash ) }
+    return visited_hash
+  end
 
-def self.find(id)
-  sql = "SELECT * FROM destinations
-  WHERE id = $1"
-  values = [id]
-  result = SqlRunner.run(sql, values).first
-  destination = Destination.new(result)
-  return destination
-end
+  def country
+    sql = "SELECT * FROM countries WHERE id = $1"
+    values = [@country_id]
+    results = SqlRunner.run(sql, values)
+    return Country.new(results.first)
+  end
 
-def delete()
-  sql = "DELETE FROM destinations
-  WHERE id = $1"
-  values = [@id]
-  SqlRunner.run( sql, values )
-end
+  def self.find(id)
+    sql = "SELECT * FROM destinations
+    WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values).first
+    destination = Destination.new(result)
+    return destination
+  end
 
-def self.all()
-  sql = "SELECT * FROM destinations;"
-  results = SqlRunner.run( sql )
-  return results.map { |hash| Destination.new( hash ) }
-end
+  def delete()
+    sql = "DELETE FROM destinations
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run( sql, values )
+  end
 
-def self.delete_all()
-  sql = "DELETE FROM destinations"
-  SqlRunner.run(sql)
-end
+  def self.all()
+    sql = "SELECT * FROM destinations;"
+    results = SqlRunner.run( sql )
+    return results.map { |hash| Destination.new( hash ) }
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM destinations"
+    SqlRunner.run(sql)
+  end
 
 end

@@ -1,0 +1,28 @@
+<h1>Destination</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>|</th>
+    <th>Country</th>
+    <th>|</th>
+    <th>Type</th>
+    <th>|</th>
+    <th>Visited</th>
+    <th>|</th>
+    <th>Delete</th>
+  </tr>
+  <% for destination in @destinations_visited %>
+  <tr>
+    <td><a href="/country/destination/<%= destination.id %>/edit"><%= destination.name %></a></td>
+    <td>|</td>
+    <td> <%= destination.country.name %></td>
+    <td>|</td>
+    <td> <%= destination.type %></td>
+    <td>|</td>
+    <td> <%= destination.visited %> </td>
+    <td>|</td>
+    <td><a href="/country/destination/<%= destination.id %>/delete">Delete <%= destination.name %></a></td>
+  </tr>
+  <% end %>
+</table>

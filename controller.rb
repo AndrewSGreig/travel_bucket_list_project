@@ -82,4 +82,10 @@ get '/country/destination/:id/delete' do
   redirect to '/country/destination'
 end
 
+
+get '/country/destination/visited' do
+  @countries = Country.all()
+  @destinations_visited = Destination.dests_visited()
+  erb(:visited_destinations)
+end
 ##################################

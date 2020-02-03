@@ -7,11 +7,11 @@
 
     <select name="country_id" >
       <% for country in @countries %>
-        <% if @destination.country_id == country.id %>
-          <option value="<%=country.id%>" selected><%= country.name %></option>
+      <% if @destination.country_id == country.id %>
+      <option value="<%=country.id%>" selected><%= country.name %></option>
       <% else %>
-          <option value="<%=country.id%>"><%= country.name %></option>
-        <% end %>
+      <option value="<%=country.id%>"><%= country.name %></option>
+      <% end %>
       <% end %>
     </select>
   </label>
@@ -21,7 +21,7 @@
   </label>
 
   <label> Visited:
-    <input type="text" name="visited" value=<%= @destination.visited %>>
+    <input type="BOOLEAN" name="visited" value=<%= @destination.visited %>>
   </label>
 
   <input class="Destination" type='submit' value="Update Destination ">
