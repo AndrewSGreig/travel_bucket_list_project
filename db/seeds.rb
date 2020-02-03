@@ -5,7 +5,6 @@ require("pry-byebug")
 Destination.delete_all()
 Country.delete_all()
 
-
 country1 = Country.new({
   "name" => "Scotland",
   "continent" => "Europe",
@@ -87,3 +86,27 @@ destination5 = Destination.new({
   "visited" => true
   })
   destination5.save
+
+destination6 = Destination.new({
+  "name" => "Barcelona",
+  "country_id" => country4.id,
+  "type" => "City",
+  "visited" => false
+  })
+destination6.save
+
+destination7 = Destination.new({
+  "name" => "New York",
+  "country_id" => country6.id,
+  "type" => "City",
+  "visited" => true
+  })
+destination7.save
+
+destination8 = Destination.new({
+  "name" => "Washington DC",
+  "country_id" => country6.id,
+  "type" => "City",
+  "visited" => false
+  })
+destination8.save 

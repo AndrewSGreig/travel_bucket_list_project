@@ -41,6 +41,24 @@ def update
     SqlRunner.run(sql, values)
   end
 
+  def self.getMostRecentlyPlannedDests(numOfResultsWanted)
+    sql = "SELECT * FROM destinations WHERE visited = false ORDER BY id DESC LIMIT $1;"
+    values = [numOfResultsWanted]
+    results = SqlRunner.run(sql, values)
+
+    return results.map { |hash| Destination.new( hash )}
+
+  end
+
+  def self.getMostRecentlyVisitedDests(numOfResultsWanted)
+    sql = "SELECT * FROM destinations WHERE visited ORDER BY id DESC LIMIT $1;"
+    values = [numOfResultsWanted]
+    results = SqlRunner.run(sql, values)
+
+    return results.map { |hash| Destination.new( hash )}
+
+  end
+
   def self.dests_visited()
     sql = "SELECT * FROM destinations WHERE visited;"
     results = SqlRunner.run(sql)

@@ -5,13 +5,23 @@ require_relative( './models/country.rb' )
 require_relative( './models/destination.rb' )
 also_reload( './models/*' )
 
+get '/home/' do
+  redirect to '/home'
+end
+
+get '/home' do
+  @planned_destinations = Destination.getMostRecentlyPlannedDests(3)
+  @visited_destinations = Destination.getMostRecentlyVisitedDests(3)
+  erb(:home)
+end
+
 get '/country/' do
   redirect to "/country"
 end
 
 get '/country' do
   @countries = Country.all()
-  erb(:index)
+  erb(:country_index)
 end
 
 get '/country/new' do
