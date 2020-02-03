@@ -88,4 +88,10 @@ get '/country/destination/visited' do
   @destinations_visited = Destination.dests_visited()
   erb(:visited_destinations)
 end
+
+get '/country/destination/planned' do
+  @countries = Country.all()
+  @destinations_planned = Destination.dests_planned()
+  erb(:planned_destinations)
+end
 ##################################

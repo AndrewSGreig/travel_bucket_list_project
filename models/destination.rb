@@ -42,11 +42,17 @@ def update
   end
 
   def self.dests_visited()
-    binding.pry
     sql = "SELECT * FROM destinations WHERE visited;"
     results = SqlRunner.run(sql)
     visited_hash = results.map { |hash| Destination.new( hash ) }
     return visited_hash
+  end
+
+  def self.dests_planned()
+    sql = "SELECT * FROM destinations WHERE visited=false;"
+    results = SqlRunner.run(sql)
+    planned_hash = results.map { |hash| Destination.new( hash ) }
+    return planned_hash
   end
 
   def country
