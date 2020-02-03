@@ -8,19 +8,38 @@ class Destination
     @country_id = options['country_id'].to_i
     @type = options['type']
     @visited = options['visited']
+    @id = options['id'].to_i
   end
 
   def save
+    binding.pry
     sql = "INSERT INTO destinations(
     name, country_id, type, visited
   )
   VALUES(
     $1, $2, $3, $4
   )
-  RETURNING id"
+  RETURNING id;"
   values = [@name, @country_id, @type, @visited]
   results = SqlRunner.run(sql, values)
   @id = results.first()['id'].to_i
+end
+
+def update
+  sql = "UPDATE destinations
+  SET
+  (
+    name,
+    country_id,
+    type,
+    visited
+  ) =
+  (
+    $1, $2, $3, $4
+  )
+  WHERE id = $5"
+  values = [@name, @country_id, @type, @visited, @id]
+  SqlRunner.run(sql, values)
 end
 
 def country
@@ -36,8 +55,8 @@ def self.find(id)
   WHERE id = $1"
   values = [id]
   result = SqlRunner.run(sql, values).first
-  country = Country.new(result)
-  return country
+  destination = Destination.new(result)
+  return destination
 end
 
 def self.delete(id)

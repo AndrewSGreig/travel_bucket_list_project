@@ -1,26 +1,22 @@
 <h1>New Destination</h1>
 
 <form action="/country/destination/new" method="post">
-  <label>
-    Enter a new destination:
-    <input type="text" name="name" >
-  </label>
+  <label id="destination name" for="name"> Destination name: </label>
+  <input type="text" name="name" id="name" >
 
-  <label>Select the appropriate country
-    <select name="country_id">
-      <% for country in @countries %>
-      <option value="<%=country.id%>"><%= country.name %></option>
-      <% end %>
-    </select>
-  </label>
 
-  <label> Type:
-    <input type="text" name="type" value="City / Beach">
-  </label>
+  <label for="country"> Select country: </label>
+  <select id="country" name="country_id">
+    <% for country in @countries %>
+    <option value="<%=country.id%>"><%= country.name %></option>
+    <% end %>
+  </select>
 
-  <label> Visited:
-    <input type="text" name="visited" value="visited / not visited">
-  </label>
+  <label for="type"> Type: </label>
+  <input type="text" name="type" id="type" value="City / Beach">
+
+  <label for="visited"> Visited: </label>
+  <input type="text" name="visited" id="visited" value="visited / not visited">
 
   <input class="Destination" type='submit' value="Add Destination ">
 </form>

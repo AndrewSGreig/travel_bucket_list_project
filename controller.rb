@@ -47,7 +47,6 @@ get '/country/destination' do
 end
 
 get '/country/destination/new' do
-  binding.pry
   @countries = Country.all
   @destinations = Destination.all
   erb(:"new_destination")
@@ -60,8 +59,16 @@ post '/country/destination/new' do
 end
 
 get '/country/destination/:id/edit' do
+  @countries = Country.all()
   @destination = Destination.find(params['id'])
+  @destination.type
   erb(:edit_destination)
+end
+
+post '/country/destination/:id' do
+  destination = Destination.new(params)
+  destination.update
+  redirect to "/country/destination"
 end
 
 

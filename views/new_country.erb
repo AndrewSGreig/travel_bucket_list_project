@@ -1,15 +1,14 @@
 <h1>New Country</h1>
 <form action="/country" method="POST">
-  <label>
-    Country:
-    <input type="text" name="name" id="name">
-  </label>
-  <label> Continent:
-    <input type="text" name="continent" id="continent">
-  </label>
-  <label> Visited?:
-    <input type="text" name="visited" id="visited">
-  </label>
+  <label for="name">Country: </label>
+  <input type="text" name="name" id="name">
+
+  <label for="continent"> Continent: </label>
+  <input type="text" name="continent" id="continent">
+
+  <label for="visited"> Visited?: </label>
+  <input type="text" name="visited" id="visited">
+
   <input class="Country" type='submit' value="Save">
 
 </form>

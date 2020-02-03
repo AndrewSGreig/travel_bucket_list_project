@@ -5,21 +5,26 @@
     <input type="text" name="name" value=<%= @destination.name %>>
   </label>
 
-  <label>Select the appropriate country
-    <select name="country_id">
+  <label>Country:
+
+    <select name="country_id" >
       <% for country in @countries %>
-      <option value="<%=country.id%>"><%= country.name %></option>
+        <% if @destination.country_id == country.id %>
+          <option value="<%=country.id%>" selected><%= country.name %></option>
+      <% else %>
+          <option value="<%=country.id%>"><%= country.name %></option>
+        <% end %>
       <% end %>
     </select>
   </label>
 
   <label> Type:
-    <input type="text" name="type" value="City / Beach">
+    <input type="text" name="type" value=<%= @destination.type %>>
   </label>
 
   <label> Visited:
-    <input type="text" name="visited" value="visited / not visited">
+    <input type="text" name="visited" value=<%= @destination.visited %>>
   </label>
 
-  <input class="Destination" type='submit' value="Add Destination ">
+  <input class="Destination" type='submit' value="Update Destination ">
 </form>
