@@ -1,9 +1,8 @@
-<h1>New Destination</h1>
-
-<form action="/country/destination/new" method="post">
+<h1>Edit Destination</h1>
+<form method="POST" action="/country/destination/<%= @destination.id %>">
   <label>
-    Enter a new destination:
-    <input type="text" name="name" >
+    Destination Name:
+    <input type="text" name="name" value=<%= @destination.name %>>
   </label>
 
   <label>Select the appropriate country

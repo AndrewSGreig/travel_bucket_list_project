@@ -11,7 +11,6 @@ class Destination
   end
 
   def save
-    binding.pry
     sql = "INSERT INTO destinations(
     name, country_id, type, visited
   )
@@ -25,12 +24,20 @@ class Destination
 end
 
 def country
-  binding.pry
-  sql = "SELECT countries.* FROM countries INNER JOIN destinations ON destinations.country_id = countries.id WHERE destinations.country_id = $1;"
-  values = [@id]
+  sql = "SELECT * FROM countries WHERE id = $1"
+  values = [@country_id]
   results = SqlRunner.run(sql, values)
-  results_map = results.map { |country| Country.new(country) }
-  return results_map
+  # results_map = results.map { |country| Country.new(country) }
+  return Country.new(results.first)
+end
+
+def self.find(id)
+  sql = "SELECT * FROM destinations
+  WHERE id = $1"
+  values = [id]
+  result = SqlRunner.run(sql, values).first
+  country = Country.new(result)
+  return country
 end
 
 def self.delete(id)
