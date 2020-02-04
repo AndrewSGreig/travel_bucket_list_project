@@ -2,6 +2,7 @@ table, th, td {
   padding: 10px;
   border: 1px solid black;
   border-collapse: collapse;
+  background-color: #cccccc;
   }
 
 /* Border */
@@ -30,8 +31,9 @@ li a:hover {
 
 /* background */
 body{
-  background-image: url("travel-photo2007401.gif")
-  /* background-image: url("https://www.pexels.com/photo/white-airliner-wing-on-top-of-sea-clouds-2007401/"); */
+  /* background-image: url('images/travel-photo2007401.jpeg'); */
+  background-image: url("https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?cs=srgb&dl=white-airliner-wing-on-top-of-sea-clouds-2007401.jpg&fm=jpg");
   background-repeat: no-repeat, repeat;
+  background-size: cover;
   background-color: #cccccc;
 }
