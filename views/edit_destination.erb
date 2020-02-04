@@ -6,11 +6,11 @@
   <label for="country_id">Country: </label>
     <select name="country_id" id="country_id">
       <% for country in @countries %>
-      <% if @destination.country_id == country.id %>
-      <option value="<%=country.id%>" selected><%= country.name %></option>
-      <% else %>
-      <option value="<%=country.id%>">"<%= country.name %>"</option>
-      <% end %>
+        <% if @destination.country_id == country.id %>
+          <option value="<%=country.id%>" selected><%= country.name %></option>
+        <% else %>
+          <option value="<%=country.id%>">"<%= country.name %>"</option>
+        <% end %>
       <% end %>
     </select>
 

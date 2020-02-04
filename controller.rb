@@ -85,13 +85,11 @@ post '/country/destination/:id' do
   redirect to "/country/destination"
 end
 
-
 get '/country/destination/:id/delete' do
   destination = Destination.find(params['id'])
   destination.delete
   redirect to '/country/destination'
 end
-
 
 get '/country/destination/visited' do
   @countries = Country.all()
@@ -105,3 +103,16 @@ get '/country/destination/planned' do
   erb(:planned_destinations)
 end
 ##################################
+
+get '/country/destination/find' do
+binding.pry
+  erb(:destination_find)
+end
+
+get '/country/destination/find/name' do
+  binding.pry
+  @destinations = Destination.all()
+  @dest_find_results = Destination.find_by_dest_name(params['name'])
+  erb(:destination_find_name)
+
+end
