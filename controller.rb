@@ -67,6 +67,7 @@ get '/country/destination/new' do
 end
 
 post '/country/destination/new' do
+  binding.pry
   destination = Destination.new(params)
   destination.save
   redirect to("/country/destination")
