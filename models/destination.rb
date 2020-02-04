@@ -90,11 +90,11 @@ def update
   end
 
   def self.find_by_dest_name(name)
-    sql = "SELECT * FROM destinations WHERE name=$1"
+
+    sql = "SELECT * FROM destinations WHERE name= $1"
     values = [name]
     result = SqlRunner.run(sql, values)
-    destination = Destination.new(result)
-    return destination
+    return result.map { |hash| Destination.new( hash ) }
   end
 
   def delete()

@@ -11,7 +11,7 @@ CREATE TABLE countries(
 CREATE TABLE destinations(
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
-  country_id INT REFERENCES countries(id),
+  country_id INT REFERENCES countries(id) ON DELETE CASCADE,
   type VARCHAR(255),
   visited BOOLEAN
 );
