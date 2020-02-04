@@ -111,7 +111,6 @@ end
 get '/country/destination/find/name' do
   @destinations = Destination.all()
   @dest_find_results = Destination.find_by_dest_name(params['name'])
-  binding.pry
   erb(:destination_find_name)
 
 end

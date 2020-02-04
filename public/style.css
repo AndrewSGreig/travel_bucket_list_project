@@ -1,10 +1,10 @@
-  table, th, td {
+table, th, td {
   padding: 10px;
   border: 1px solid black;
   border-collapse: collapse;
   }
 
-
+/* Border */
 ul {
   list-style-type: none;
   margin: 0;
@@ -19,4 +19,19 @@ li a {
   display: block;
   padding: 8px;
   background-color: #dddddd;
+  border: 1px solid #555;
+}
+
+li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+
+/* background */
+body{
+  background-image: url("travel-photo2007401.gif")
+  /* background-image: url("https://www.pexels.com/photo/white-airliner-wing-on-top-of-sea-clouds-2007401/"); */
+  background-repeat: no-repeat, repeat;
+  background-color: #cccccc;
 }
