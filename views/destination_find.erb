@@ -1,0 +1,28 @@
+<h1>Find Destination<h1>
+  <%# <!-- <form method="POST" action="/country/destination/<%= @destination.id %>"> --> %>
+    <label for="name"> Destination Name: </label>
+    <input type="text" name="name" id="name">
+
+    <label>Country:
+
+      <select name="country_id" >
+        <% for country in @countries %>
+        <% if @destination.country_id == country.id %>
+        <option value="<%=country.id%>" selected><%= country.name %></option>
+        <% else %>
+        <option value="<%=country.id%>"><%= country.name %></option>
+        <% end %>
+        <% end %>
+      </select>
+    </label>
+
+    <label> Continent:
+      <input type="text" name="type">
+    </label>
+
+    <label> City:
+      <input type="text" name="visited" >
+    </label>
+
+    <input class="Destination" type='submit' value="Update Destination ">
+  </form>

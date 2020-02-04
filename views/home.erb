@@ -1,23 +1,26 @@
 <h1>Home</h1>
 <label for="destinations_planned">Recently Planned Destinations</label>
 <table id="destinations_planned">
+  <head>
+    <style>
+      table, th, td {
+      padding: 10px;
+      border: 1px solid black;
+      border-collapse: collapse;
+      }
+    </style>
+  </head>
   <tr>
     <th>Name</th>
-    <th>|</th>
     <th>Country</th>
-    <th>|</th>
     <th>Type</th>
-    <th>|</th>
     <th>Visited</th>
   </tr>
   <% for destination in @planned_destinations %>
   <tr>
     <td><%= destination.name %></td>
-    <td>|</td>
     <td> <%= destination.country.name %></td>
-    <td>|</td>
     <td> <%= destination.type %></td>
-    <td>|</td>
     <td> <%= destination.visited %> </td>
   </tr>
   <% end %>
@@ -29,21 +32,15 @@
 <table id="destinations_visited">
   <tr>
     <th>Name</th>
-    <th>|</th>
     <th>Country</th>
-    <th>|</th>
     <th>Type</th>
-    <th>|</th>
     <th>Visited</th>
   </tr>
   <% for destination in @visited_destinations %>
   <tr>
     <td><%= destination.name %></td>
-    <td>|</td>
     <td> <%= destination.country.name %></td>
-    <td>|</td>
     <td> <%= destination.type %></td>
-    <td>|</td>
     <td> <%= destination.visited %> </td>
   </tr>
   <% end %>

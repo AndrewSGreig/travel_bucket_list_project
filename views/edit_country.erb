@@ -2,10 +2,10 @@
 <form method="POST" action="/country/<%= @country.id %>">
   <label>
     Country:
-    <input type="text" name="name" id="name" value=<%= @country.name %>>
+    <input type="text" name="name" id="name" value="<%= @country.name %>">
   </label>
   <label> Continent:
-    <input type="text" name="continent" id="continent" value=<%= @country.continent %>>
+    <input type="text" name="continent" id="continent" value="<%= @country.continent %>"">
   </label>
   <label> Visited?:
     <input type="BOOLEAN" name="visited" id="visited" value=<%= @country.visited %>>

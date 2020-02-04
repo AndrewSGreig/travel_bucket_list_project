@@ -1,28 +1,25 @@
 <h1>Edit Destination</h1>
 <form method="POST" action="/country/destination/<%= @destination.id %>">
   <label for="name"> Destination Name: </label>
-  <input type="text" name="name" id="name" value=<%= @destination.name %>>
+  <input type="text" name="name" id="name" value="<%= @destination.name %>">
 
-  <label>Country:
-
-    <select name="country_id" >
+  <label for="country_id">Country: </label>
+    <select name="country_id" id="country_id">
       <% for country in @countries %>
       <% if @destination.country_id == country.id %>
       <option value="<%=country.id%>" selected><%= country.name %></option>
       <% else %>
-      <option value="<%=country.id%>"><%= country.name %></option>
+      <option value="<%=country.id%>">"<%= country.name %>"</option>
       <% end %>
       <% end %>
     </select>
-  </label>
 
-  <label> Type:
-    <input type="text" name="type" value=<%= @destination.type %>>
-  </label>
+  <label for="type"> Type: </label>
+    <input type="text" name="type" id="type" value="<%= @destination.type %>">
 
-  <label> Visited:
-    <input type="BOOLEAN" name="visited" value=<%= @destination.visited %>>
-  </label>
+  <label for="visited"> Visited: </label>
+    <input type="BOOLEAN" name="visited" id="visited" value=<%= @destination.visited %>">
+
 
   <input class="Destination" type='submit' value="Update Destination ">
 </form>
