@@ -16,7 +16,7 @@
     <td> <%= destination.country.name %></td>
     <td> <%= destination.type %></td>
     <td>
-      <input type="checkbox" name="visited" id="visited">
+      <input type="checkbox" name="visited" id="visited" disabled>
     </td>
     <td><a href="/country/destination/<%= destination.id %>/delete">Delete <%= destination.name %></a></td>
   </tr>
@@ -26,7 +26,7 @@
       <td> <%= destination.country.name %></td>
       <td> <%= destination.type %></td>
       <td>
-        <input type="checkbox" name="visited" id="visited" checked>
+        <input type="checkbox" name="visited" id="visited" disabled checked>
       </td>
       <td><a href="/country/destination/<%= destination.id %>/delete">Delete <%= destination.name %></a></td>
     </tr>
