@@ -1,15 +1,20 @@
 <h2>Edit <%= @country.name %></h2>
 <form method="POST" action="/country/<%= @country.id %>">
-  <label>
-    Country:
-    <input type="text" name="name" id="name" value="<%= @country.name %>">
-  </label>
-  <label> Continent:
-    <input type="text" name="continent" id="continent" value="<%= @country.continent %>"">
-  </label>
-  <label> Visited?:
-    <input type="BOOLEAN" name="visited" id="visited" value=<%= @country.visited %>>
-  </label>
+
+  <label for='name'> Country: </label>
+  <input type="text" name="name" id="name" value="<%= @country.name %>">
+
+  <label FOR='continent'> Continent: </label>
+  <input type="text" name="continent" id="continent" value="<%= @country.continent %>"">
+
+  <label for="visited"> Visited?: </label>
+  <input type="hidden" name="visited" value=false>
+    <% if (@country.visited) == 'f' %>
+      <input type="checkbox" name="visited" id="visited" >
+    <% else %>
+      <input type="checkbox" name="visited" id="visited" checked>
+    <% end %>
+
   <input class="Country" type='submit' value="Update">
 
 </form>

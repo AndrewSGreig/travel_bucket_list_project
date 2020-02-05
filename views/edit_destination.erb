@@ -4,22 +4,28 @@
   <input type="text" name="name" id="name" value="<%= @destination.name %>">
 
   <label for="country_id">Country: </label>
-    <select name="country_id" id="country_id">
-      <% for country in @countries %>
-        <% if @destination.country_id == country.id %>
-          <option value="<%=country.id%>" selected><%= country.name %></option>
-        <% else %>
-          <option value="<%=country.id%>">"<%= country.name %>"</option>
-        <% end %>
-      <% end %>
-    </select>
+  <select name="country_id" id="country_id">
+    <% for country in @countries %>
+    <% if @destination.country_id == country.id %>
+    <option value="<%=country.id%>" selected><%= country.name %></option>
+    <% else %>
+    <option value="<%=country.id%>">"<%= country.name %>"</option>
+    <% end %>
+    <% end %>
+  </select>
 
   <label for="type"> Type: </label>
-    <input type="text" name="type" id="type" value="<%= @destination.type %>">
+  <input type="text" name="type" id="type" value="<%= @destination.type %>">
 
   <label for="visited"> Visited: </label>
-    <input type="BOOLEAN" name="visited" id="visited" value=<%= @destination.visited %>">
+  <input type="hidden" name="visited" value=false>
+  <% @destination.visited %>
+  <% if (@destination.visited) == 'f' %>
+    <input type="checkbox" name="visited" id="visited" >
+  <% else %>
+    <input type="checkbox" name="visited" id="visited" checked>
+  <% end %>
 
 
-  <input class="Destination" type='submit' value="Update Destination ">
-</form>
+    <input class="Destination" type='submit' value="Update Destination ">
+  </form>
