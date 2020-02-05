@@ -9,11 +9,27 @@
     <th>Delete</th>
   </tr>
   <% for country in @countries %>
-  <tr>
-    <td><a href="/country/<%= country.id %>/edit"><%= country.name %></a></td>
-    <td><%= country.continent %></td>
-    <td><%= country.visited %></td>
-    <td><a href="/country/<%= country.id %>/delete">Delete <%= country.name %></a></td>
-  </tr>
+  <input type="hidden" name="visited" value=false>
+    <% if (country.visited) == 'f' %>
+      <tr>
+        <td><a href="/country/<%= country.id %>/edit"><%= country.name %></a></td>
+        <td><%= country.continent %></td>
+        <td>
+          <input type="checkbox" name="visited" id="visited">
+        </td>
+        <td><a href="/country/<%= country.id %>/delete">Delete <%= country.name %></a></td>
+      </tr>
+
+    <% else %>
+      <tr>
+        <td><a href="/country/<%= country.id %>/edit"><%= country.name %></a></td>
+        <td><%= country.continent %></td>
+        <td>
+          <input type="checkbox" name="visited" id="visited" checked>
+        </td>
+        <td><a href="/country/<%= country.id %>/delete">Delete <%= country.name %></a></td>
+      </tr>
+    <% end %>
+
   <% end %>
 </table>

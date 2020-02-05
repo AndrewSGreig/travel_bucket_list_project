@@ -8,12 +8,27 @@
     <th>Visited</th>
   </tr>
   <% for destination in @planned_destinations %>
-  <tr>
-    <td><%= destination.name %></td>
-    <td> <%= destination.country.name %></td>
-    <td> <%= destination.type %></td>
-    <td> <%= destination.visited %> </td>
-  </tr>
+    <input type="hidden" name="visited" value=false>
+    <% if (destination.visited) == 'f' %>
+      <tr>
+        <td><%= destination.name %></td>
+        <td> <%= destination.country.name %></td>
+        <td> <%= destination.type %></td>
+        <td>
+          <input type="checkbox" name="visited" id="visited">
+        </td>
+      </tr>
+    <% else %>
+      <tr>
+        <td><%= destination.name %></td>
+        <td> <%= destination.country.name %></td>
+        <td> <%= destination.type %></td>
+        <td>
+          <input type="checkbox" name="visited" id="visited" checked>
+        </td>
+      </tr>
+    <% end %>
+
   <% end %>
 </table>
 <br>
@@ -28,11 +43,25 @@
     <th>Visited</th>
   </tr>
   <% for destination in @visited_destinations %>
-  <tr>
-    <td><%= destination.name %></td>
-    <td> <%= destination.country.name %></td>
-    <td> <%= destination.type %></td>
-    <td> <%= destination.visited %> </td>
-  </tr>
+    <input type="hidden" name="visited" value=false>
+    <% if (destination.visited) == 'f' %>
+      <tr>
+        <td><%= destination.name %></td>
+        <td> <%= destination.country.name %></td>
+        <td> <%= destination.type %></td>
+        <td>
+          <input type="checkbox" name="visited" id="visited">
+        </td>
+      </tr>
+    <% else %>
+      <tr>
+        <td><%= destination.name %></td>
+        <td> <%= destination.country.name %></td>
+        <td> <%= destination.type %></td>
+        <td>
+          <input type="checkbox" name="visited" id="visited" checked>
+        </td>
+      </tr>
+    <% end %>
   <% end %>
 </table>
