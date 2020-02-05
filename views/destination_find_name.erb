@@ -9,5 +9,14 @@
   <label for="country"> Destination Country: </label>
   <input type="text" name="country" id="country" disabled=true value="<%= @dest_find_results[0].country.name %>">
 
+  <label for="visited"> Visited: </label>
+  <input type="hidden" name="visited" value=false>
+    <% if (@dest_find_results[0].visited) == 'f' %>
+      <input type="checkbox" name="visited" id="visited" disabled>
+    <% else %>
+      <input type="checkbox" name="visited" id="visited" disabled checked>
+    <% end %>
+
+
 
 </form>
